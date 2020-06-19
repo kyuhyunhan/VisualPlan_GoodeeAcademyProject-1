@@ -36,16 +36,16 @@
 						</td>
 					</tr>
 				</table>
-				<c:if test="${!sessionScope.login.equals(b.id)}">
+				<c:if test="${!sessionScope.login.equals(b.id) && !sessionScope.login.equals('admin')}">
 					<input type="button" class="btn btn-default" onclick="window.alert('본인만 수정할 수 있습니다.')" value="수정"/>
 				</c:if>
-				<c:if test="${sessionScope.login.equals(b.id)}">
+				<c:if test="${sessionScope.login.equals(b.id) || sessionScope.login.equals('admin')}">
 					<input type="button" class="btn btn-default" onclick="location.href='editForm.do?btype=${param.btype}&boardno=${b.boardno}';" value="수정"/>
 				</c:if>
-				<c:if test="${!sessionScope.login.equals(b.id)}">
+				<c:if test="${!sessionScope.login.equals(b.id) && !sessionScope.login.equals('admin')}">
 					<input type="button" class="btn btn-default" onclick="window.alert('본인만 삭제할 수 있습니다.')" value="삭제"/>
 				</c:if>
-				<c:if test="${sessionScope.login.equals(b.id)}">
+				<c:if test="${sessionScope.login.equals(b.id) || sessionScope.login.equals('admin')}">
 					<input type="button" class="btn btn-default" onclick="location.href='deleteForm.do?btype=${param.btype}&boardno=${b.boardno}';" value="삭제"/>
 				</c:if>
 				<c:if test="${b.btype==1}">
