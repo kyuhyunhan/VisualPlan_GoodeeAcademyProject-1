@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org/DTD config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="model/mapper/mybatis.properties" />
+	<environments default="development">	<!-- 연결한 DB 설정. Connection 설정 -->
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}"/>
+				<property name="url" value="${url}"/>
+				<property name="username" value="${username}"/>
+				<property name="password" value="${password}"/>
+			</dataSource>	
+		</environment>
+	</environments>
+	<mappers>		<!-- sql 구문을 저장하는 xml, 인터페이스 설정 -->
+		<package name="model.mapper"/> <!-- 이 패키지 안에 있는 인터페이스를 사용 -->
+	</mappers>
+</configuration>

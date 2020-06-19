@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="euc-kr" ?>
+<decorators defaultdir="/layout">
+	<decorator name="main" page="layout.jsp">
+		<pattern>/views/*</pattern>
+	</decorator>
+</decorators>
