@@ -44,38 +44,6 @@
 							</a>
 						</li>
 					</ul>
-					<ul class="list-unstyled">
-						<li class="panel panel-default">
-							<a href="planDetail.jsp">
-								<div class="panel-body">
-									<div class="panel-heading">
-										<h1 class="panel-title" style="text-align:center;"><b>2020년 정부 사업 연간 계획</b></h1>
-									</div>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-											60%
-										</div>
-									</div>
-								</div>
-							</a>
-						</li>
-					</ul>
-					<ul class="list-unstyled">
-						<li class="panel panel-default">
-							<a href="planDetail.jsp">
-								<div class="panel-body">
-									<div class="panel-heading">
-										<h1 class="panel-title" style="text-align:center;"><b>토이 프로젝트 v.1</b></h1>
-									</div>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 10%;">
-											10%
-										</div>
-									</div>
-								</div>
-							</a>
-						</li>
-					</ul>
 				</div>
 			</div>
 			

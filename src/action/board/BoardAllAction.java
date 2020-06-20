@@ -16,6 +16,9 @@ import com.oreilly.servlet.MultipartRequest;
 
 import action.ActionForward;
 import model.Board;
+import model.MPBoard;
+import model.Stage;
+import model.ToDo;
 import model.BoardDao;
 
 public class BoardAllAction {
