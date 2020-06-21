@@ -15,7 +15,7 @@ public class MPBoardDao {
 	private Class<MPBoardMapper> cls = MPBoardMapper.class;
 	private Map<String, Object> map = new HashMap<>();
 	
-	public int list(String id) {
+	public List<MPBoard> list(String id) {
 		SqlSession session = MyBatisConnection.getConnection();
 		try {
 			map.clear();
@@ -27,5 +27,6 @@ public class MPBoardDao {
 		} finally {
 			MyBatisConnection.close(session);
 		}
+		return null;
 	}
 }
