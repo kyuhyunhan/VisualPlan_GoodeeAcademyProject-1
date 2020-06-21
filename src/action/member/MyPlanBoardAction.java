@@ -21,6 +21,6 @@ public class MyPlanBoardAction extends UserLoginAction {
 	protected ActionForward doExecute(HttpServletRequest request, HttpServletResponse response) {
 		List<MPBoard> mpblist = new MPBoardDao().list(id);
 		request.setAttribute("mpblist", mpblist);
-		return null;
+		return new ActionForward();
 	}
 }
