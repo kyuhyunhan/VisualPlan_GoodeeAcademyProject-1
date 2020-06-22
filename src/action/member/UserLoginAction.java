@@ -15,12 +15,12 @@ public abstract class UserLoginAction implements Action{
 		id = request.getParameter("id");
 		if(login == null) {
 			request.setAttribute("msg", "로그인 후 거래하세요");
-			request.setAttribute("url", "loginForm.me");
+			request.setAttribute("url", "../member/loginForm.me");
 			return new ActionForward(false,"../alert.jsp");
 		}
 		if(id != null && !id.equals(login) && !login.equals("admin")) {
 			request.setAttribute("msg", "본인 거래만 가능합니다");
-			request.setAttribute("url", "main.me");
+			request.setAttribute("url", "../home/home.me");
 			return new ActionForward(false,"../alert.jsp");
 		}
 		if(id == null || id.trim().equals("")) id = login;

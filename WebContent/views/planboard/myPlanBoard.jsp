@@ -25,7 +25,7 @@
 			<div class="col-sm-6 text-left"> 
 				<h1 style="text-align:center; padding-bottom:40px;">My Plan Board</h1>
 				<div style="text-align:center;padding-bottom:60px;" >
-					<a href="addPlan.jsp"><img src="../../images/plus.png" width="30"></a>
+					<a href="addPlanForm.jsp"><img src="../../images/plus.png" width="30"></a>
 				</div>
 				<div>
 					<ul class="list-unstyled">
