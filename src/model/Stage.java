@@ -5,6 +5,9 @@ public class Stage {
 	private int stageno;
 	private String stagetitle;
 	private int percentage;
+	private String memo;
+	private boolean checked;
+	
 	public int getPlanno() {
 		return planno;
 	}
@@ -29,9 +32,21 @@ public class Stage {
 	public void setPercentage(int percentage) {
 		this.percentage = percentage;
 	}
+	public String getMemo() {
+		return memo;
+	}
+	public void setMemo(String memo) {
+		this.memo = memo;
+	}
+	public boolean isChecked() {
+		return checked;
+	}
+	public void setChecked(boolean checked) {
+		this.checked = checked;
+	}
 	@Override
 	public String toString() {
 		return "Stage [planno=" + planno + ", stageno=" + stageno + ", stagetitle=" + stagetitle + ", percentage="
-				+ percentage + "]";
+				+ percentage + ", memo=" + memo + ", checked=" + checked + "]";
 	}
 }

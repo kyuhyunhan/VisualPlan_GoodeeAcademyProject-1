@@ -5,6 +5,7 @@ public class MPBoard {
 	private String id;
 	private String title;
 	private String detail;
+	
 	public int getPlanno() {
 		return planno;
 	}

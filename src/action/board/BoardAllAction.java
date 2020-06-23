@@ -17,12 +17,18 @@ import com.oreilly.servlet.MultipartRequest;
 import action.ActionForward;
 import model.Board;
 import model.MPBoard;
+import model.Reply;
+import model.ReplyDao;
 import model.Stage;
-import model.ToDo;
+import model.StageDao;
 import model.BoardDao;
+import model.MPBoardDao;
 
 public class BoardAllAction {
 	private BoardDao dao = new BoardDao();
+	private MPBoardDao mpbdao = new MPBoardDao(); 
+	private ReplyDao repdao = new ReplyDao();
+	private StageDao stagedao = new StageDao();
 	
 	public ActionForward write (HttpServletRequest request, HttpServletResponse response) {
 		String msg = "게시물 등록 실패";
@@ -81,11 +87,16 @@ public class BoardAllAction {
 	public ActionForward boardinfo (HttpServletRequest request, HttpServletResponse response) {
 		int btype = Integer.parseInt(request.getParameter("btype"));
 		int boardno = Integer.parseInt(request.getParameter("boardno"));
+		
+		List<Reply> replylist = repdao.replylist(btype, boardno);
+		int replycount = repdao.replyCount(btype, boardno);
 		Board b = dao.selectOne(btype, boardno);
 		if(request.getRequestURI().contains("boards/boardInfo.do")) {
 			dao.readcntAdd(boardno);
 		}
 		request.setAttribute("b", b);
+		request.setAttribute("replycount", replycount);
+		request.setAttribute("replylist", replylist);
 		return new ActionForward();
 	}
 	public ActionForward edit (HttpServletRequest request, HttpServletResponse response) {
@@ -137,5 +148,79 @@ public class BoardAllAction {
 		request.setAttribute("msg", msg);
 		request.setAttribute("url", url);
 		return new ActionForward(false,"../alert.jsp");
+	}
+	public ActionForward reply (HttpServletRequest request, HttpServletResponse response) {
+		String msg = "댓글 등록 실패";
+		String url = "boardInfo.do?btype=" + Integer.parseInt(request.getParameter("btype")) 
+					 + "&boardno=" + Integer.parseInt(request.getParameter("boardno"));
+		
+		Reply reply = new Reply();
+		reply.setBtype(Integer.parseInt(request.getParameter("btype")));
+		reply.setBoardno(Integer.parseInt(request.getParameter("boardno")));
+		reply.setId(request.getParameter("id"));
+		reply.setComment(request.getParameter("comment"));
+		
+		int num = repdao.maxnum(reply);
+		reply.setReplyno(++num);
+		if(repdao.insert(reply)) {
+			msg = "댓글 등록 성공";
+		}
+		request.setAttribute("msg", msg);
+		request.setAttribute("url", url);
+		return new ActionForward(false, "../alert.jsp");
+	}
+	public ActionForward addplan (HttpServletRequest request, HttpServletResponse response) {
+		String msg = "플랜 등록 실패";
+		String url = "addPlanForm.do";	//에러날것 같은데..
+		
+		MPBoard mpboard = new MPBoard();
+		mpboard.setTitle(request.getParameter("title"));
+		mpboard.setDetail(request.getParameter("detail"));
+		mpboard.setId(request.getParameter("id"));
+		int plannum = mpbdao.maxnum(mpboard);
+		mpboard.setPlanno(++plannum);
+		if(mpbdao.insert(mpboard)) {
+			msg = "플랜등록까지 성공";
+		}
+		
+		String stagetitles[] = request.getParameterValues("stagetitle_cloned");
+		String percentagesString[] = request.getParameterValues("percentage_cloned");
+		int[] percentages = new int[percentagesString.length];
+		for(String s : percentagesString) {
+			System.out.println(s);
+		}
+		for(int i=0;i<percentagesString.length;i++) {
+			percentages[i] = Integer.parseInt(percentagesString[i]);
+		}
+		String memos[] = request.getParameterValues("memo_cloned");
+		
+		for(int i=0;i<stagetitles.length;i++) {
+			Stage stage = new Stage();
+			stage.setPlanno(plannum);
+			stage.setStagetitle(stagetitles[i]);
+			stage.setPercentage(percentages[i]);
+			stage.setMemo(memos[i]);
+			stage.setChecked(false);
+			int stagenum = stagedao.maxnum(stage);
+			stage.setStageno(++stagenum);
+			if(stagedao.insert(stage)) {
+				msg="중간목표 등록까지 성공";
+			}
+		}
+		
+//		int num = dao.maxnum(board); 
+//		board.setBoardno(++num); 
+//		if(dao.insert(board)) {
+//			msg = "게시물 등록 성공"; 
+//			if(board.getBtype()==1) { 
+//				url = "notice.do?btype=1"; 
+//			} else { 
+//				url = "freeBoard.do?btype=2"; 
+//			} 
+//		}
+		
+		request.setAttribute("msg", msg);
+		request.setAttribute("url", url);
+		return new ActionForward(false, "../alert.jsp");
 	}
 }

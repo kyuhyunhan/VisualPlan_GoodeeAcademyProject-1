@@ -14,7 +14,6 @@ import action.ActionForward;
 import model.MPBoard;
 import model.MPBoardDao;
 import model.Stage;
-import model.ToDo;
 
 public class MyPlanBoardAction extends UserLoginAction {
 	@Override
