@@ -41,11 +41,11 @@ CREATE TABLE member
 
 CREATE TABLE plan
 (
-	planno int NOT NULL,
 	id varchar(20) NOT NULL,
+	planno int NOT NULL,
 	title varchar(20) NOT NULL,
 	detail varchar(200),
-	PRIMARY KEY (planno)
+	PRIMARY KEY (id, planno)
 );
 
 
@@ -66,6 +66,7 @@ CREATE TABLE reply
 
 CREATE TABLE stage
 (
+	id varchar(20) NOT NULL,
 	planno int NOT NULL,
 	stageno int NOT NULL,
 	stagetitle varchar(20),
@@ -73,7 +74,7 @@ CREATE TABLE stage
 	-- 메모, 확인사항
 	memo varchar(500) COMMENT '메모, 확인사항',
 	checked boolean,
-	PRIMARY KEY (stageno)
+	PRIMARY KEY (id, planno, stageno)
 );
 
 
@@ -113,8 +114,8 @@ ALTER TABLE reply
 
 
 ALTER TABLE stage
-	ADD FOREIGN KEY (planno)
-	REFERENCES plan (planno)
+	ADD FOREIGN KEY (id, planno)
+	REFERENCES plan (id, planno)
 	ON UPDATE RESTRICT
 	ON DELETE RESTRICT
 ;

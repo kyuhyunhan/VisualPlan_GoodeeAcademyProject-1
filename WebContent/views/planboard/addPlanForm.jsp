@@ -58,6 +58,10 @@
 			</div>
 			
 			<div class="col-sm-4 text-left"> 
+					
+					<div style="padding-bottom:50px;">
+						<a href="myPlanBoard.me" style="text-decoration:none;"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>My Plan Board로 돌아가기</a>
+					</div>
 				
 					<h2 style="text-align:center">플랜 추가하기</h2>
 					<form class="form-horizontal" action="addPlan.do" method="post" name="f">

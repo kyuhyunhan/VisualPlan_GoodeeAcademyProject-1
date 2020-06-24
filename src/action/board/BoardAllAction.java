@@ -171,7 +171,7 @@ public class BoardAllAction {
 	}
 	public ActionForward addplan (HttpServletRequest request, HttpServletResponse response) {
 		String msg = "플랜 등록 실패";
-		String url = "addPlanForm.do";	//에러날것 같은데..
+		String url = "myPlanBoard.me";	//에러날것 같은데..
 		
 		MPBoard mpboard = new MPBoard();
 		mpboard.setTitle(request.getParameter("title"));
@@ -180,15 +180,23 @@ public class BoardAllAction {
 		int plannum = mpbdao.maxnum(mpboard);
 		mpboard.setPlanno(++plannum);
 		if(mpbdao.insert(mpboard)) {
-			msg = "플랜등록까지 성공";
+			msg = "플랜 등록 미완료(중간단계 입력 오류 발생)";
 		}
+		//중간목표를 추가할 때, stageno=0, percentage=0, checked=1인 데이터를 자동으로 추가
+		Stage stage0 = new Stage();
+		stage0.setId(request.getParameter("id"));
+		stage0.setPlanno(plannum);
+		stage0.setStageno(0);
+		stage0.setPercentage(0);
+		stage0.setChecked(true);
+		if(stagedao.insert(stage0)) {
+			msg="기본값 0% 등록";
+		}
+		
 		
 		String stagetitles[] = request.getParameterValues("stagetitle_cloned");
 		String percentagesString[] = request.getParameterValues("percentage_cloned");
 		int[] percentages = new int[percentagesString.length];
-		for(String s : percentagesString) {
-			System.out.println(s);
-		}
 		for(int i=0;i<percentagesString.length;i++) {
 			percentages[i] = Integer.parseInt(percentagesString[i]);
 		}
@@ -196,6 +204,7 @@ public class BoardAllAction {
 		
 		for(int i=0;i<stagetitles.length;i++) {
 			Stage stage = new Stage();
+			stage.setId(request.getParameter("id"));
 			stage.setPlanno(plannum);
 			stage.setStagetitle(stagetitles[i]);
 			stage.setPercentage(percentages[i]);
@@ -204,20 +213,9 @@ public class BoardAllAction {
 			int stagenum = stagedao.maxnum(stage);
 			stage.setStageno(++stagenum);
 			if(stagedao.insert(stage)) {
-				msg="중간목표 등록까지 성공";
+				msg="플랜 등록 성공";
 			}
 		}
-		
-//		int num = dao.maxnum(board); 
-//		board.setBoardno(++num); 
-//		if(dao.insert(board)) {
-//			msg = "게시물 등록 성공"; 
-//			if(board.getBtype()==1) { 
-//				url = "notice.do?btype=1"; 
-//			} else { 
-//				url = "freeBoard.do?btype=2"; 
-//			} 
-//		}
 		
 		request.setAttribute("msg", msg);
 		request.setAttribute("url", url);

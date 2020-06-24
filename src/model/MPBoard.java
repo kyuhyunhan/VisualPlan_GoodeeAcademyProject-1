@@ -5,6 +5,7 @@ public class MPBoard {
 	private String id;
 	private String title;
 	private String detail;
+	private int percentage;
 	
 	public int getPlanno() {
 		return planno;
@@ -30,8 +31,17 @@ public class MPBoard {
 	public void setDetail(String detail) {
 		this.detail = detail;
 	}
+	
+	public int getPercentage() {
+		return percentage;
+	}
+	public void setPercentage(int percentage) {
+		this.percentage = percentage;
+	}
 	@Override
 	public String toString() {
-		return "MPBoard [planno=" + planno + ", id=" + id + ", title=" + title + ", detail=" + detail + "]";
+		return "MPBoard [planno=" + planno + ", id=" + id + ", title=" + title + ", detail=" + detail + ", percentage="
+				+ percentage + "]";
 	}
+
 }

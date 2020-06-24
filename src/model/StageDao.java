@@ -1,6 +1,8 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -34,5 +36,20 @@ public class StageDao {
 			MyBatisConnection.close(session);
 		}
 		return false;
+	}
+	public List<Stage> loaddetail(String id, int planno){
+		SqlSession session = MyBatisConnection.getConnection();
+		List<Stage> stagelist = new ArrayList<Stage>();
+		try {
+			map.clear();
+			map.put("id", id);
+			map.put("planno",planno);
+			return session.getMapper(cls).loaddetail(map);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			MyBatisConnection.close(session);
+		}
+		return null;
 	}
 }

@@ -112,7 +112,7 @@
 					<div class="row" id="addcomment">
 						<form action="reply.do?btype=${param.btype}&boardno=${param.boardno}" method="post" name="f">
 							<input type="hidden" name="id" value="${sessionScope.login}">
-							<textarea class="form-control" placeholder="내용을 입력하세요" name="comment"></textarea><br/>
+							<textarea class="form-control" placeholder="내용을 입력하세요" name="comment"></textarea><br>
 							<a href="javascript:inputcheck()" class="btn btn-primary pull-right">Send</a>
 						</form>
 					</div>

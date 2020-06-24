@@ -3,4 +3,7 @@
 	<decorator name="main" page="layout.jsp">
 		<pattern>/views/*</pattern>
 	</decorator>
+	<excludes>
+		<pattern>/views/planboard/percentage.jsp*</pattern>
+	</excludes>	
 </decorators>

@@ -1,6 +1,7 @@
 package model;
 
 public class Stage {
+	private String id;
 	private int planno;
 	private int stageno;
 	private String stagetitle;
@@ -8,6 +9,12 @@ public class Stage {
 	private String memo;
 	private boolean checked;
 	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public int getPlanno() {
 		return planno;
 	}
@@ -46,7 +53,7 @@ public class Stage {
 	}
 	@Override
 	public String toString() {
-		return "Stage [planno=" + planno + ", stageno=" + stageno + ", stagetitle=" + stagetitle + ", percentage="
-				+ percentage + ", memo=" + memo + ", checked=" + checked + "]";
+		return "Stage [id=" + id + ", planno=" + planno + ", stageno=" + stageno + ", stagetitle=" + stagetitle
+				+ ", percentage=" + percentage + ", memo=" + memo + ", checked=" + checked + "]";
 	}
 }

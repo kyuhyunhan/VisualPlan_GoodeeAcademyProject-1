@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,22 +29,26 @@
 					<a href="addPlanForm.jsp"><img src="../../images/plus.png" width="30"></a>
 				</div>
 				<div>
+				
 					<ul class="list-unstyled">
-						<li class="panel panel-default">
-							<a href="planDetail.jsp">
+						<c:forEach var="ml" items="${mpblist}"> 	
+							<li class="panel panel-default">
+								<a href="planDetail.me?planno=${ml.planno}">
 								<div class="panel-body">
 									<div class="panel-heading">
-										<h1 class="panel-title" style="text-align:center;"><b>구디 아카데미 개인 프로젝트</b></h1>
+										<h1 class="panel-title" style="text-align:center;"><b>${ml.title}</b></h1>
 									</div>
 									<div class="progress">
-										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
-											30%
+										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:${ml.percentage}%;">
+											${ml.percentage}%
 										</div>
 									</div>
 								</div>
-							</a>
-						</li>
+								</a>
+							</li>
+						</c:forEach>
 					</ul>
+					
 				</div>
 			</div>
 			

@@ -15,11 +15,14 @@ import model.Stage;
 
 public interface StageMapper {
 
-	@Select("select ifnull(max(stageno),0) from stage where planno=#{planno}")
+	@Select("select ifnull(max(stageno),0) from stage where id=#{id} and planno=#{planno}")
 	int maxnum(Stage stage);
 	
 	@Insert("insert into stage "
-			+ "(planno, stageno, stagetitle, percentage, memo, checked) "
-			+ "values (#{planno},#{stageno},#{stagetitle},#{percentage},#{memo},#{checked})")
+			+ "(id, planno, stageno, stagetitle, percentage, memo, checked) "
+			+ "values (#{id}, #{planno},#{stageno},#{stagetitle},#{percentage},#{memo},#{checked})")
 	void insert(Stage stage);
+	
+	@Select("select * from stage where id=#{id} and planno=#{planno} order by planno asc")
+	List<Stage> loaddetail(Map<String, Object> map);
 }

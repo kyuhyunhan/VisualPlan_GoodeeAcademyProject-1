@@ -52,4 +52,20 @@ public class MPBoardDao {
 		}
 		return null;
 	}
+	public MPBoard loaddetail(String id, int planno) {
+		SqlSession session = MyBatisConnection.getConnection();
+		try {
+			map.clear();
+			map.put("id",id);
+			map.put("planno",planno);
+			MPBoard temp = session.getMapper(cls).loaddetail(map).get(0);
+			System.out.println(temp);
+			return temp;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			MyBatisConnection.close(session);
+		}
+		return null;
+	}
 }
