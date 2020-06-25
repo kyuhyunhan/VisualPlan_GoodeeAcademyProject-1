@@ -87,10 +87,11 @@
 						 
 						<div class="form-group" style="text-align:center;">        
 							<div class="col-sm-offset-2 col-sm-10">
-								<button type="submit" class="btn btn-default">수정 완료</button>
+								<button type="submit" class="btn btn-primary">수정 완료</button>
 							</div>
 						</div>
 					</form>
+					<br><br><br><br>
 			</div>
 			
 			<div class="col-sm-4 sidenav">

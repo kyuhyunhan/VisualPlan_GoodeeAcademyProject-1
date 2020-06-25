@@ -35,13 +35,12 @@
 						<th>E-Mail</th>
 						<td>${mem.email}</td>
 					</tr>
-					<tr>
-						<td colspan="2">
-							<a href="editForm.me?id=${mem.id}">[¼öÁ¤]</a>
-							<a href="deleteForm.me?id=${mem.id}">[Å»Åð]</a>
-						</td>
-					</tr>
 				</table>
+				<br><br>
+				<div style="text-align:center">
+					<a href="editForm.me?id=${mem.id}"><button type="button" class="btn btn-default">¼öÁ¤</button></a>
+					<a href="deleteForm.me?id=${mem.id}"><button type="button" class="btn btn-default">Å»Åð</button></a>
+				</div>
 			</div>
 			
 			<div class="col-sm-3 sidenav">

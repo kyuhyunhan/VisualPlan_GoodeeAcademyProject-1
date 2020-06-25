@@ -11,10 +11,10 @@
 	<div class="container-fluid text-center" style="margin-top:200px">    
 		<div class="row content">
 		
-			<div class="col-sm-2 sidenav">
+			<div class="col-sm-3 sidenav">
 			</div>
 			
-			<div class="col-sm-8 text-left"> 
+			<div class="col-sm-6 text-left"> 
 				<form action="delete.me" method="post">
 					<input type="hidden" name="id" value="${param.id}">
 					<table>
@@ -25,16 +25,15 @@
 								<input type="password" name="password"/>
 							</td>
 						</tr>
-						<tr>
-							<td colspan="2">
-								<input type="submit" value="Å»ÅðÇÏ±â"/>
-							</td>
-						</tr>
 					</table>
+					<br><br>
+					<div style="text-align:center">
+						<input type="submit" class="btn btn-danger" value="Å»ÅðÇÏ±â"/>
+					</div>
 				</form>
 			</div>
 			
-			<div class="col-sm-2 sidenav">
+			<div class="col-sm-3 sidenav">
 			</div>
 			
 		</div>

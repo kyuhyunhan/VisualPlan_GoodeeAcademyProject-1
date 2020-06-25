@@ -30,10 +30,10 @@
 	<div class="container-fluid text-center" style="margin-top:200px">    
 		<div class="row content">
 		
-			<div class="col-sm-2 sidenav">
+			<div class="col-sm-3 sidenav">
 			</div>
 			
-			<div class="col-sm-8 text-left"> 
+			<div class="col-sm-6 text-left"> 
 				<form action="login.me" method="post" name="f" onsubmit="return inputcheck(this)">
 					<table>
 						<caption style="font-size:40px">·Î±×ÀÎ</caption>
@@ -58,7 +58,7 @@
 				</form>
 			</div>
 			
-			<div class="col-sm-2 sidenav">
+			<div class="col-sm-3 sidenav">
 			</div>
 			
 		</div>

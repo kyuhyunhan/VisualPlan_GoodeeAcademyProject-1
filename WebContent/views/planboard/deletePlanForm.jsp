@@ -18,7 +18,7 @@
 					<br><br><br><br>
 					<div style="text-align: center">
 						<input type="submit" value="삭제" class="btn btn-danger">
-						<button type="button" class="btn btn-default" onclick="href=">취소</button>
+						<button type="button" class="btn btn-default" onclick="location.href='planDetail.me?planno=${planno}'">취소</button>
 					</div>
 				</form>
 			</div>

@@ -13,6 +13,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style>  
+	#hometag {
+		color: #1bbc9b;
+	}
   /* Remove the navbar's default margin-bottom and rounded borders */ 
   .navbar {
     margin-bottom: 0;
@@ -63,7 +66,7 @@
 </div>
  --%>
 	<div class="w3-top">
-		<nav class="navbar navbar-inverse">
+		<nav class="navbar">
 		
 		  <div class="container-fluid">
 		    <div class="navbar-header">
@@ -74,7 +77,7 @@
 		        <span class="icon-bar"></span>                        
 		      </button>
 		    --%>
-		      <a class="navbar-brand" href="../home/home.me">Visual Plan</a>
+		      <a id="hometag" class="navbar-brand" href="../home/home.me"><strong>VisualPlan</strong></a>
 		    </div>
 		    
 		    <div class="collapse navbar-collapse" id="myNavbar">	<%-- 이 div가 있어야 nav 탭들이 반응형으로 되어서 화면이 작아졌을 때, 우측에 탭으로 묶인다 --%>

@@ -11,12 +11,12 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script>
+	$(document).ready(function(){
+	  $('[data-toggle="tooltip"]').tooltip();
+	});
+</script>
 </head>
-<style>
-	.well {
-		background-color:#ffffff !important;
-	}
-</style>
 <body>
 	<div class="container-fluid text-center" style="margin-top:200px">    
 		<div class="row content">
@@ -26,7 +26,7 @@
 			<div class="col-sm-6 text-left"> 
 				<h1 style="text-align:center; padding-bottom:40px;">My Plan Board</h1>
 				<div style="text-align:center;padding-bottom:60px;" >
-					<a href="addPlanForm.jsp"><img src="../../images/plus.png" width="30"></a>
+					<a href="addPlanForm.jsp"><img src="../../images/plus.png" width="30" data-toggle="tooltip" title="플랜 추가하기" data-placement="right"></a>
 				</div>
 				<div>
 				

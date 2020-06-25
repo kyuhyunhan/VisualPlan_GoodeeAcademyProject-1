@@ -26,10 +26,10 @@
 <body>
 	<div class="container-fluid text-center" style="margin-top:200px">    
 		<div class="row content">
-			<div class="col-sm-2 sidenav">
+			<div class="col-sm-3 sidenav">
 			</div>
 			
-			<div class="col-sm-8 text-left"> 
+			<div class="col-sm-6 text-left"> 
 				<form action="write.do?btype=${param.btype}" method="post" name="f">
 					<table>
 						<caption>게시판 글쓰기</caption>
@@ -51,16 +51,16 @@
 								<textarea rows="15" name="content" id="content"></textarea>
 							</td>
 						</tr>
-						<tr>
-							<td colspan="2">
-								<a href="javascript:inputcheck()">[게시물등록]</a>
-							</td>
-						</tr>
 					</table>
+					<br><br><br>
+					<div style="text-align:center">
+						<a href="javascript:inputcheck()"><button type="button" class="btn btn-primary">게시물 등록</button></a>
+					</div>
 				</form>
+				<br><br><br>
 			</div>
 			
-			<div class="col-sm-2 sidenav">
+			<div class="col-sm-3 sidenav">
 			</div>
 		</div>
 	</div>

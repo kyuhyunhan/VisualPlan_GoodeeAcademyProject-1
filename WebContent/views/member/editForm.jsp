@@ -41,39 +41,38 @@
 				<form action="edit.me" name="f" method="post" onsubmit="return inputcheck(this)">
 					<table>
 						<caption>회원 정보 수정</caption>
-							<tr>
-								<th>아이디</th>
-								<td>
-									<input type="text" name="id" readonly value="${mem.id}">	<!-- readonly value : 수정볼가 -->
-								</td>
-							</tr>
-							<tr>
-								<td>비밀번호</td>
-								<td>
-									<input type="password" name="password">
-								</td>
-							</tr>
-							<tr>
-								<td>이름</td>
-								<td>
-									<input type="text" name="name" value="${mem.name}">
-								</td>
-							</tr>
-							<tr>
-								<td>이메일</td>
-								<td colspan="2">
-									<input type="text" name="email" value="${mem.email}">
-								</td>
-							</tr>
-							<tr>
-								<td colspan="3">
-									<input type="submit" value="회원수정">
-									<c:if test="${sessionScope.login != 'admin' || mem.id =='admin'}">
-										<input type="button" value="비밀번호수정" onclick="win_passchg()">
-									</c:if>
-								</td>
-							</tr>
+						<tr>
+							<td>아이디</td>
+							<td>
+								<input type="text" name="id" readonly value="${mem.id}">	<!-- readonly value : 수정볼가 -->
+							</td>
+						</tr>
+						<tr>
+							<td>비밀번호</td>
+							<td>
+								<input type="password" name="password">
+							</td>
+						</tr>
+						<tr>
+							<td>이름</td>
+							<td>
+								<input type="text" name="name" value="${mem.name}">
+							</td>
+						</tr>
+						<tr>
+							<td>이메일</td>
+							<td colspan="2">
+								<input type="text" name="email" value="${mem.email}">
+							</td>
+						</tr>
 					</table>
+					<br><br>
+					<div style="text-align:center">
+						<input type="submit" class="btn btn-default" value="회원수정">
+						<c:if test="${sessionScope.login != 'admin' || mem.id =='admin'}">
+							<input type="button" value="비밀번호수정" class="btn btn-default" onclick="win_passchg()">
+						</c:if>
+					</div>
 				</form>
 			</div>
 			

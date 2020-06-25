@@ -10,40 +10,49 @@
 <head>
 <meta charset="EUC-KR">
 <title>회원목록보기</title>
-<link rel="stylesheet" href="../../css/main.css">
+<!-- <link rel="stylesheet" href="../../css/main.css"> -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="container-fluid text-center" style="margin-top:200px">    
 		<div class="row content">
 		
-			<div class="col-sm-2 sidenav">
+			<div class="col-sm-3 sidenav">
 			</div>
 			
-			<div class="col-sm-8 text-left"> 
-				<table>
+			<div class="col-sm-6 text-left"> 
+				<table class="table table-hover">
 					<caption>회원목록</caption>
-					<tr>
-						<th>아이디</th>
-						<th>이름</th>
-						<th>email</th>
-						<th>&nbsp;</th>
-					</tr>
-					<c:forEach var="m" items="${memberlist}">
+					<thead>
 						<tr>
-							<td>${m.id}</td>
-							<td>${m.name}</td>
-							<td>${m.email}</td>
-							<td>
-								<c:if test="${m.id != 'admin'}">
-									<a href="delete.me?id=${m.id}">[강제탈퇴]</a>
-								</c:if>
-							</td>
+							<th>아이디</th>
+							<th>이름</th>
+							<th>email</th>
+							<th>&nbsp;</th>
 						</tr>
-					</c:forEach>
+					</thead>
+					<tbody>
+						<c:forEach var="m" items="${memberlist}">
+							<tr>
+								<td>${m.id}</td>
+								<td>${m.name}</td>
+								<td>${m.email}</td>
+								<td>
+									<c:if test="${m.id != 'admin'}">
+										<a href="delete.me?id=${m.id}"><button type="button" class="btn btn-default btn-sm">강제탈퇴</button></a>
+									</c:if>
+								</td>
+							</tr>
+						</c:forEach>
+					</tbody>
 				</table>
 			</div>
 			
-			<div class="col-sm-2 sidenav">
+			<div class="col-sm-3 sidenav">
 			</div>
 			
 		</div>

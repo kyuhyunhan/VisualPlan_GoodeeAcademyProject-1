@@ -58,8 +58,8 @@
 	
 		<!-- Second Container -->
 		<div class="bg-2 text-center" style="padding-top: 70px;padding-bottom: 70px;">
-			<h3 class="margin">여기에 뭐 넣지?</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+			<!-- <h3 class="margin">여기에 뭐 넣지?</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p> -->
 		</div>
 	</div>
 </body>
