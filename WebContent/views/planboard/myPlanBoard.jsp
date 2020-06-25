@@ -33,7 +33,7 @@
 					<ul class="list-unstyled">
 						<c:forEach var="ml" items="${mpblist}"> 	
 							<li class="panel panel-default">
-								<a href="planDetail.me?planno=${ml.planno}">
+								<a href="planDetail.me?planno=${ml.planno}" style="text-decoration:none;">
 								<div class="panel-body">
 									<div class="panel-heading">
 										<h1 class="panel-title" style="text-align:center;"><b>${ml.title}</b></h1>

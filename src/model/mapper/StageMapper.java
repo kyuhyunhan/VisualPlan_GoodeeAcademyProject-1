@@ -25,4 +25,10 @@ public interface StageMapper {
 	
 	@Select("select * from stage where id=#{id} and planno=#{planno} order by planno asc")
 	List<Stage> loaddetail(Map<String, Object> map);
+	
+	@Delete("delete from stage where id=#{id} and planno=#{planno}")
+	int delete(@Param("id") String id, @Param("planno") int planno);
+
+	@Update("update stage set stagetitle=#{stagetitle}, percentage=#{percentage}, memo=#{memo}, checked=#{checked} where id=#{id} and planno=#{planno} and stageno=#{stageno}")
+	void edit(Stage stage);
 }

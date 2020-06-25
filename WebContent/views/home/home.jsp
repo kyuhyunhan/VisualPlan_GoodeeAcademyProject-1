@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,10 +45,15 @@
 		<!-- First Container -->
 		<div class="bg-1 text-center" style="padding-top: 100px;padding-bottom: 80px;">
 			<img src="../../images/home1.jpg" class="img-responsive img-circle margin" style="display:inline" alt="(Image)" width="350" height="350">
-				<p class="margin">Welcome to VisualPlan</p>
-				<h2>계획의 진행도를 한 눈에 확인하세요</h2>
-				<br><br><br>
-			<a href="../member/loginForm.jsp" class="btn btn-default btn-lg" style="font-size:40px; color: #757474;">  시 작 하 기  </a>
+			<p class="margin">Welcome to VisualPlan</p>
+			<h2>계획의 진행도를 한 눈에 확인하세요</h2>
+			<br><br><br>
+			<c:if test='${sessionScope.login == null}'>
+				<a href="../member/loginForm.me" class="btn btn-default btn-lg" style="font-size:40px; color: #757474;">  시 작 하 기  </a>
+			</c:if>
+			<c:if test='${sessionScope.login != null}'>
+				<a href="../planboard/myPlanBoard.me" class="btn btn-default btn-lg" style="font-size:40px; color: #757474;">  시 작 하 기  </a>
+			</c:if>
 		</div>
 	
 		<!-- Second Container -->

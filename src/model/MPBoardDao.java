@@ -58,14 +58,37 @@ public class MPBoardDao {
 			map.clear();
 			map.put("id",id);
 			map.put("planno",planno);
-			MPBoard temp = session.getMapper(cls).loaddetail(map).get(0);
-			System.out.println(temp);
-			return temp;
+			return session.getMapper(cls).loaddetail(map).get(0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			MyBatisConnection.close(session);
 		}
 		return null;
+	}
+	public boolean delete(String id, int planno) {
+		SqlSession session = MyBatisConnection.getConnection();
+		try {
+			int cnt = session.getMapper(cls).delete(id, planno);
+			if(cnt > 0)
+				return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			MyBatisConnection.close(session);
+		}
+		return false;
+	}
+	public boolean edit(MPBoard mpboard) {
+		SqlSession session = MyBatisConnection.getConnection();
+		try {
+			session.getMapper(cls).edit(mpboard);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			MyBatisConnection.close(session);
+		}
+		return false;
 	}
 }

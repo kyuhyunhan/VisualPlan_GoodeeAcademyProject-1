@@ -52,4 +52,29 @@ public class StageDao {
 		}
 		return null;
 	}
+	public boolean delete(String id, int planno) {
+		SqlSession session = MyBatisConnection.getConnection();
+		try {
+			int cnt = session.getMapper(cls).delete(id, planno);
+			if(cnt > 0)
+				return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			MyBatisConnection.close(session);
+		}
+		return false;
+	}
+	public boolean edit(Stage stage) {
+		SqlSession session = MyBatisConnection.getConnection();
+		try {
+			session.getMapper(cls).edit(stage);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			MyBatisConnection.close(session);
+		}
+		return false;
+	}
 }

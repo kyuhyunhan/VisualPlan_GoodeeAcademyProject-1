@@ -78,7 +78,7 @@
 							<!-- 	<span class="col-sm-2 control-label">상세내용</span> -->
 							<label class="control-label col-sm-2" for="detail">상세내용</label>  
 								<div class="col-sm-9">          
-									<input type="text" class="form-control" id="detail" placeholder="상세내용을 입력하세요" name="detail">
+									<textarea rows="3" class="form-control" id="detail" placeholder="상세내용을 입력하세요" name="detail"></textarea>
 								</div>
 							</div>
 							<br>
@@ -104,7 +104,7 @@
 							</div>
 							
 							<div class="form-group">
-							 	<label class="control-label col-sm-2" >
+							 	<label class="control-label col-sm-2" for="memo">
 							 		메모
 							 	</label> 
 								<div class="col-sm-9">          
