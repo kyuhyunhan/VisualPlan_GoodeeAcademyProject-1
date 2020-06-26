@@ -27,7 +27,7 @@ public interface MPBoardMapper {
 			+ "WHERE p.id=a.id AND p.planno = a.planno AND p.id=#{id}")
 	List<MPBoard> list(Map<String,Object> map);
 	
-	@Select("SELECT * FROM plan p, (SELECT id, planno, MAX(percentage) as percentage FROM stage WHERE id='test1' AND checked=1  GROUP BY id, planno) a " 
+	@Select("SELECT * FROM plan p, (SELECT id, planno, MAX(percentage) as percentage FROM stage WHERE id=#{id} AND checked=1  GROUP BY id, planno) a " 
 			+ "WHERE p.id=a.id AND p.planno = a.planno AND p.id=#{id} AND p.planno=#{planno}")
 	List<MPBoard> loaddetail(Map<String,Object> map);
 	

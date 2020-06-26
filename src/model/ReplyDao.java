@@ -63,4 +63,17 @@ public class ReplyDao {
 		}
 		return null;
 	}
+	public boolean delete(int boardno, int replyno) {
+		SqlSession session = MyBatisConnection.getConnection();
+		try {
+			int cnt = session.getMapper(cls).delete(boardno, replyno);
+			if(cnt > 0) 
+				return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			MyBatisConnection.close(session);
+		}
+		return false;
+	}
 }

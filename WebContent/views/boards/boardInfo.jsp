@@ -47,15 +47,19 @@
 		}
 		f.submit();	//form 객체에 submit 발생
 	}
+	function windowopen(page, btype, boardno, replyno) {
+		var op = "width=500, height=150, left=500,top=500";
+		open(page+".jsp?btype="+btype+"&boardno="+boardno+"&replyno="+replyno,"",op);
+	}
 </script>
 </head>
 <body>
 	<div class="container-fluid text-center" style="margin-top:200px">    
 		<div class="row content">
-			<div class="col-sm-2 sidenav">
+			<div class="col-sm-3 sidenav">
 			</div>
 			
-			<div class="col-sm-8 text-left"> 
+			<div class="col-sm-6 text-left"> 
 				<table>
 					<caption>게시물 상세 보기</caption>
 					<tr>
@@ -131,6 +135,13 @@
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<button class="btn btn-default btn-xs">수정</button>
 									<button class="btn btn-default btn-xs">삭제</button>
+									<%-- <c:if test="${!sessionScope.login.equals(rl.id) && !sessionScope.login.equals('admin')}">
+										<input type="button" class="btn btn-default btn-xs" onclick="window.alert('본인만 삭제할 수 있습니다.')" value="삭제"/>
+									</c:if>
+									<c:if test="${sessionScope.login.equals(rl.id) || sessionScope.login.equals('admin')}">
+										<input type="button" class="btn btn-default" onclick="location.href='deleteReplyForm.do?btype=${param.btype}&boardno=${b.boardno}&replyno=${rl.replyno}';" value="삭제"/>
+										<input type="button" class="btn btn-default btn-xs" onclick="javascript:windowopen('deleteReplyForm',${param.btype},${b.boardno},${rl.replyno})" value="삭제"/>
+									</c:if> --%>
 								</div>    
 								<p>${rl.comment}</p>
 							</div>
@@ -143,7 +154,7 @@
 			</div>
 			
 			
-			<div class="col-sm-2 sidenav">
+			<div class="col-sm-3 sidenav">
 			</div>
 		</div>
 	</div>

@@ -33,4 +33,7 @@ public interface ReplyMapper {
 			+ "</choose>"
 			+ "</script>"})
 	List<Reply> select(Map<String, Object> map);
+	
+	@Delete("DELETE FROM reply WHERE boardno=#{boardno} and replyno=#{replyno}")
+	int delete(@Param("boardno") int boardno, @Param("replyno") int replyno);
 }

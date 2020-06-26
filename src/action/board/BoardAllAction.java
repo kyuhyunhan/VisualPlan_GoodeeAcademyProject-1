@@ -149,6 +149,19 @@ public class BoardAllAction {
 		request.setAttribute("url", url);
 		return new ActionForward(false,"../alert.jsp");
 	}
+	public ActionForward deleteReply (HttpServletRequest request, HttpServletResponse response) {
+		int btype = Integer.parseInt(request.getParameter("btype"));
+		int boardno = Integer.parseInt(request.getParameter("boardno"));
+		int replyno = Integer.parseInt(request.getParameter("replyno"));
+		
+		String msg = "비밀번호 오류";
+		String url = "";
+		
+		if(repdao.delete(boardno, replyno)) {
+			return new ActionForward();
+		}
+		return null;
+	}
 	public ActionForward reply (HttpServletRequest request, HttpServletResponse response) {
 		String msg = "댓글 등록 실패";
 		String url = "boardInfo.do?btype=" + Integer.parseInt(request.getParameter("btype")) 
