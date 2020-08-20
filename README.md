@@ -13,4 +13,12 @@
 
 <br>
 
-## 2. 상세 화면 및 기능
+## 2. 상세 화면 및 기능  
+### My Plan Board
+![myplanboard](/img/myplanboard.JPG)
+
+### 플랜 추가하기
+![addplan](/img/addplan.JPG)
+
+### 플랜 상세화면
+![plandetail](/img/plandetail.JPG)
